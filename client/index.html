@@ -34,10 +34,15 @@
 			return factory;
 		});
 
-		ocAppModule.controller("UsersController", function($scope, UserFactory){
+		gAppModule.controller("UsersController", function($scope, UserFactory){
 			UserFactory.index(function(dbinfo){
 				$scope.users = dbinfo;
 			});
+		});
+		gAppModule.controller("MovesController", function($scope, UserFactory){
+			$scope.card={
+				flip: false
+			}
 		});
 
 	</script>
