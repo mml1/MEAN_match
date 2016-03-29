@@ -40,16 +40,13 @@
 			});
 		});
 		gAppModule.controller("MovesController", function($scope, UserFactory){
-			$scope.card={
-				flip: false,
-				id:"one"
-			}
+			var cards = []
 			$scope.card2={
 				flip: false,
-				id:"one"
-			}
-			$scope.isMobile = true;
-			$scope.isFlipped = false;
+				id:"one",
+				match: false,
+
+			}	
 		});
 
 	</script>

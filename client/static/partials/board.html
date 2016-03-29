@@ -1,25 +1,6 @@
 <div ng-controller = "MovesController">
 
-	<div class = "row">
-		<div ng-show= "!isFlipped" ng-click="isFlipped=!true">
-
-				<div class="col-sm-3 card one" ng-click="isFlipped==false" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
-		</div>
-		<div ng-show= "isFlipped">
-				<div class="col-sm-3 card text-center one" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">cow</h2></div>
-		</div>
-	</div>
-
- <button ng-click="isMobile = !isMobile"> switch case </button>
-    
-    
-    <div ng-if="isMobile">
-      <p ng-click="isMobile = !isMobile">MOBILE</p>
-    </div>
-    
-    <div ng-if="!isMobile">
-      <p ng-click="isMobile = !isMobile">DESKTOP</p>
-    </div>
+	
 	<div class = "row" ng-switch on="card.flip">
 		<div ng-switch-when= false>
 			<a ng-click="card.flip=true">
