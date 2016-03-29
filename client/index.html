@@ -41,8 +41,15 @@
 		});
 		gAppModule.controller("MovesController", function($scope, UserFactory){
 			$scope.card={
-				flip: false
+				flip: false,
+				id:"one"
 			}
+			$scope.card2={
+				flip: false,
+				id:"one"
+			}
+			$scope.isMobile = true;
+			$scope.isFlipped = false;
 		});
 
 	</script>

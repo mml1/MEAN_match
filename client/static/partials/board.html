@@ -1,37 +1,179 @@
 <div ng-controller = "MovesController">
+
+	<div class = "row">
+		<div ng-show= "!isFlipped" ng-click="isFlipped=!true">
+
+				<div class="col-sm-3 card one" ng-click="isFlipped==false" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
+		</div>
+		<div ng-show= "isFlipped">
+				<div class="col-sm-3 card text-center one" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">cow</h2></div>
+		</div>
+	</div>
+
+ <button ng-click="isMobile = !isMobile"> switch case </button>
+    
+    
+    <div ng-if="isMobile">
+      <p ng-click="isMobile = !isMobile">MOBILE</p>
+    </div>
+    
+    <div ng-if="!isMobile">
+      <p ng-click="isMobile = !isMobile">DESKTOP</p>
+    </div>
 	<div class = "row" ng-switch on="card.flip">
-{{card.flip}}
 		<div ng-switch-when= false>
 			<a ng-click="card.flip=true">
-				<div class="col-sm-3 card" style="background: #414141; width: 20%; height:20% ; margin: 5px"></div>
+				<div class="col-sm-3 card one" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
 			</a>
 		</div>
 
 
 		<div ng-switch-when= true>
 			<a ng-click="card.flip=false">
-				<div class="col-sm-3 card" style="background: #FFFFF; width: 20%; height:20% ; margin: 5px"></div>
+				<div class="col-sm-3 card text-center one" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Apple</h2></div>
+			</a>
+		</div>
+	</div>
+	<div class = "row" ng-switch on="card2.flip">
+		<div ng-switch-when= false>
+			<a ng-click="card2.flip=true">
+				<div class="col-sm-3 card" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
 			</a>
 		</div>
 
 
-		<div class="col-sm-3 card" style="background: #414141; width: 20%; height:20% ; margin: 5px"></div>
-		<div class="col-sm-3 card" style="background: #414141; width: 20%; height:20% ; margin: 5px"></div>
+		<div ng-switch-when= true>
+			<a ng-click="card2.flip=false">
+				<div class="col-sm-3 card text-center" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Orange</h2></div>
+			</a>
+			</div>
+		</div>
+		<div ng-switch-when= false>
+			<a ng-click="card.flip=true">
+				<div class="col-sm-3 card" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
+			</a>
+		</div>
+
+
+		<div ng-switch-when= true>
+			<a ng-click="card.flip=false">
+				<div class="col-sm-3 card text-center" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Mango</h2></div>
+			</a>
+		</div>
 	</div>
-	<div class = "row">
-		<div class="col-sm-3 card" style="background: #414141; width: 20%; height:20% ; margin: 5px"></div>
-		<div class="col-sm-3 card" style="background: #414141; width: 20%; height:20% ; margin: 5px"></div>
-		<div class="col-sm-3 card" style="background: #414141; width: 20%; height:20% ; margin: 5px"></div>
+	<div class = "row" ng-switch on="card.flip">
+		<div ng-switch-when= false>
+			<a ng-click="card.flip=true">
+				<div class="col-sm-3 card" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
+			</a>
+		</div>
+
+
+		<div ng-switch-when= true>
+			<a ng-click="card.flip=false">
+				<div class="col-sm-3 card text-center" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Mango</h2></div>
+			</a>
+		</div>
+		<div ng-switch-when= false>
+			<a ng-click="card.flip=true">
+				<div class="col-sm-3 card" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
+			</a>
+		</div>
+
+
+		<div ng-switch-when= true>
+			<a ng-click="card.flip=false">
+				<div class="col-sm-3 card text-center" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Kiwi</h2></div>
+			</a>
+			</div>
+		<div ng-switch-when= false>
+			<a ng-click="card.flip=true">
+				<div class="col-sm-3 card" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
+			</a>
+		</div>
+
+
+		<div ng-switch-when= true>
+			<a ng-click="card.flip=false">
+				<div class="col-sm-3 card text-center" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Banana</h2></div>
+			</a>
+		</div>
 	</div>
-		<div class = "row">
-		<div class="col-sm-3 card" style="background: #414141; width: 20%; height:20% ; margin: 5px"></div>
-		<div class="col-sm-3 card" style="background: #414141; width: 20%; height:20% ; margin: 5px"></div>
-		<div class="col-sm-3 card" style="background: #414141; width: 20%; height:20% ; margin: 5px"></div>
+		<div class = "row" ng-switch on="card.flip">
+		<div ng-switch-when= false>
+			<a ng-click="card.flip=true">
+				<div class="col-sm-3 card" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
+			</a>
+		</div>
+
+
+		<div ng-switch-when= true>
+			<a ng-click="card.flip=false">
+				<div class="col-sm-3 card text-center" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Kiwi</h2></div>
+			</a>
+		</div>
+		<div ng-switch-when= false>
+			<a ng-click="card.flip=true">
+				<div class="col-sm-3 card" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
+			</a>
+		</div>
+
+
+		<div ng-switch-when= true>
+			<a ng-click="card.flip=false">
+				<div class="col-sm-3 card text-center" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Banana</h2></div>
+			</a>
+			</div>
+		<div ng-switch-when= false>
+			<a ng-click="card.flip=true">
+				<div class="col-sm-3 card" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
+			</a>
+		</div>
+
+
+		<div ng-switch-when= true>
+			<a ng-click="card.flip=false">
+				<div class="col-sm-3 card text-center" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Grape</h2></div>
+			</a>
+		</div>
 	</div>
-	<div class = "row">
-		<div class="col-sm-3 card" style="background: #414141; width: 20%; height:20% ; margin: 5px"></div>
-		<div class="col-sm-3 card" style="background: #414141; width: 20%; height:20% ; margin: 5px"></div>
-		<div class="col-sm-3 card" style="background: #414141; width: 20%; height:20% ; margin: 5px"></div>
+	<div class = "row" ng-switch on="card.flip">
+		<div ng-switch-when= false>
+			<a ng-click="card.flip=true">
+				<div class="col-sm-3 card" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
+			</a>
+		</div>
+
+
+		<div ng-switch-when= true>
+			<a ng-click="card.flip=false">
+				<div class="col-sm-3 card text-center" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Orange</h2></div>
+			</a>
+		</div>
+		<div ng-switch-when= false>
+			<a ng-click="card.flip=true">
+				<div class="col-sm-3 card" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
+			</a>
+		</div>
+
+
+		<div ng-switch-when= true>
+			<a ng-click="card.flip=false">
+				<div class="col-sm-3 card text-center" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Grape</h2></div>
+			</a>
+			</div>
+		<div ng-switch-when= false>
+			<a ng-click="card.flip=true">
+				<div class="col-sm-3 card" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
+			</a>
+		</div>
+
+
+		<div ng-switch-when= true>
+			<a ng-click="card.flip=false">
+				<div class="col-sm-3 card text-center" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Apple</h2></div>
+			</a>
+		</div>
 	</div>
 	
 
