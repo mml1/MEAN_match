@@ -14,5 +14,5 @@ require("./server/config/routes.js")(app);
 
 //listening
 app.listen(8000, function(){
-	console.log("Listening to orders on 8000");
+	console.log("Listening to games on 8000");
 });

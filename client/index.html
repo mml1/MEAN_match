@@ -1,6 +1,6 @@
 <html ng-app= "gApp">
 <head>
-	<title>Orders and customers</title>
+	<title>Flip Cards</title>
 	<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 	<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
 		<!-- Latest compiled and minified CSS -->
@@ -17,6 +17,8 @@
 			$routeProvider
 			.when("/users", {
 				templateUrl: "../static/partials/users.html"
+			}).otherwise({
+				templateUrl: "../static/partials/board.html"
 			})		
 		});
 
