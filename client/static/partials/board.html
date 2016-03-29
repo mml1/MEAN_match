@@ -1,34 +1,22 @@
 <div ng-controller = "MovesController">
-
-	
-	<div class = "row" ng-switch on="card.flip">
-		<div ng-switch-when= false>
-			<a ng-click="card.flip=true">
-				<div class="col-sm-3 card one" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
-			</a>
-		</div>
-
-
-		<div ng-switch-when= true>
-			<a ng-click="card.flip=false">
-				<div class="col-sm-3 card text-center one" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Apple</h2></div>
-			</a>
-		</div>
-	</div>
-	<div class = "row" ng-switch on="card2.flip">
-		<div ng-switch-when= false>
-			<a ng-click="card2.flip=true">
-				<div class="col-sm-3 card" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
-			</a>
-		</div>
+	{{buildBoard()}}
+	<div class = "row">
+		<div  ng-switch on="card.flip">
+			<div ng-switch-when= false>
+				<a ng-click="card.flip=true">
+					<div class="col-sm-3 card one" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
+				</a>
+			</div>
 
 
-		<div ng-switch-when= true>
-			<a ng-click="card2.flip=false">
-				<div class="col-sm-3 card text-center" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Orange</h2></div>
-			</a>
+			<div ng-switch-when= true>
+				<a ng-click="card.flip=false">
+					<div class="col-sm-3 card text-center one" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Apple</h2></div>
+				</a>
 			</div>
 		</div>
+	</div>
+	<div class = "row" ng-switch on="card.flip">
 		<div ng-switch-when= false>
 			<a ng-click="card.flip=true">
 				<div class="col-sm-3 card" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div>
