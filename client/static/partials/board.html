@@ -8,16 +8,19 @@
 	{{card2.flip}}
 	<div class = "row" ng-repeat="card in cards track by $index">
 		{{$index}}
-		<div class = "card" ng-repeat = "dict in card track by $index">
-			<div ng-click= "card2.flip=true">		{{$parent.$index}}{{$index}}</div>
+		<div class = "single" ng-repeat = "dict in card track by $index">
+			<div ng-if= "dict.card.flip == false">
+				<div ng-click="dict.card.flip = true">disappear {{$index}}</div>
+			</div>
+			<div ng-if= "dict.card.flip == true">
+				<div ng-click="dict.card.flip = false">appear {{$index}}</div>
+			</div>
+			<!-- <div ng-click= "card2.flip=true">fd	{{$parent.$index}}{{$index}}</div> -->
 		</div>
 	</div>
 
 
 
-
-
-	
 	<div class = "row">
 		<div ng-switch on="card2.flip">
 			<div ng-switch-when= false>
