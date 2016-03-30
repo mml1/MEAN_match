@@ -40,6 +40,7 @@
 				$scope.users = dbinfo;
 			});
 		});
+		// gAppModule.directive()
 		gAppModule.controller("MovesController", function($scope, UserFactory){
 			var cards = []
 
@@ -70,9 +71,13 @@
 				};
 				document.getElementById("board").innerHTML = output;
 			};
-			// $scope.card ={
-			// 	flip:false
-			// }
+			$scope.card ={
+				flip:false
+			}
+			$scope.card2 ={
+				flip:false
+			}
+			//jqlite
 		})
 
 	</script>
