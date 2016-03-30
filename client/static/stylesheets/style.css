@@ -1,6 +1,16 @@
-#card{
+.backCard{
 	background: #414141; 
 	width: 20%; 
 	height:20% ; 
+	margin: 5px; 
+	color:#FF6F5C;
+}
+.frontCard{
+	background: #6ADBD8; 
+	width: 20%; 
+	height:20% ; 
 	margin: 5px
+}
+h1{
+	color: red;
 }

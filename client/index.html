@@ -12,6 +12,7 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<link rel ="stylesheet" href = "static/stylesheets/style.css">
 	<script type="text/javascript">
 		var gAppModule = angular.module("gApp", ["ngRoute"]);
 		gAppModule.config(function($routeProvider){
@@ -27,6 +28,7 @@
 			var factory = {};
 			var cards = [
 				[{card:{
+						id:1,
 						flip: false,
 						col:0,
 						row:0,
@@ -34,6 +36,7 @@
 						face: "apple"
 					}}, 
 					{card:{
+						id:2,
 						flip: false,
 						col:1,
 						row:0,
@@ -41,6 +44,7 @@
 						face: "mango"
 					}},  
 					{card:{
+						id:3,
 						flip: false,
 						col:2,
 						row:0,
@@ -48,6 +52,7 @@
 						face: "grapes"
 					}}],
 					[{card:{
+						id:4,
 						flip: false,
 						col:0,
 						row:1,
@@ -55,6 +60,7 @@
 						face: "pinapple"
 					}}, 
 					{card:{
+						id:5,
 						flip: false,
 						col:1,
 						row:1,
@@ -62,6 +68,7 @@
 						face: "kiwi"
 					}},  
 					{card:{
+						id:6,
 						flip: false,
 						col:2,
 						row:1,
@@ -69,6 +76,7 @@
 						face: "pears"
 					}}],
 					[{card:{
+						id:7,
 						flip: false,
 						col:0,
 						row:2,
@@ -76,6 +84,7 @@
 						face: "kiwi"
 					}}, 
 					{card:{
+						id:8,
 						flip: false,
 						col:1,
 						row:2,
@@ -83,6 +92,7 @@
 						face: "grapes"
 					}},  
 					{card:{
+						id:9,
 						flip: false,
 						col:2,
 						row:2,
@@ -90,23 +100,26 @@
 						face: "mango"
 					}}],
 					[{card:{
+						id:10,
 						flip: false,
 						col:0,
-						row:2,
+						row:3,
 						match: false,
 						face: "pears"
 					}}, 
 					{card:{
+						id:11,
 						flip: false,
 						col:1,
-						row:2,
+						row:3,
 						match: false,
 						face: "pinapple"
 					}},  
 					{card:{
+						id:12,
 						flip: false,
 						col:2,
-						row:2,
+						row:3,
 						match: false,
 						face: "apple"
 					}}]
@@ -114,6 +127,28 @@
 			factory.getBoard = function(callback){
 				callback(cards)
 			};
+			factory.updateBoard= function(flip, callback){
+				cards = flip
+				console.log(cards, "updated cards")
+
+			}
+			// factory.flip = function(row,id, status){
+			// 	var tempr = 2
+			// 	var tempid = 8
+			// 	//will traverse through the cards and then will update the flip
+			// 	for (var r =0; r<cards.length; r++){
+			// 		//r is row
+			// 		for(var c = 0; c < cards[r].length; c++){
+			// 			if(r == row && c == id){
+			// 			console.log(cards[r][c].card.id)
+			// 			// if (cards[r] == c){
+			// 			// 	console.log(cards[r][c])
+			// 			// }
+			// 			}
+			// 		}
+			// 	}
+			// }
+			// get the information from the scope and replace the factory board with that
 			return factory;
 		});
 		gAppModule.factory("UserFactory", function($http){
@@ -137,7 +172,14 @@
 			BoardFactory.getBoard(function(cards){
 				$scope.cards = cards
 			})
-
+			$scope.flip = function(){
+				console.log("in controller")
+				BoardFactory.updateBoard($scope.cards, function(newCards){
+					BoardFactory.getBoard(function(cards){
+						$scope.cards = cards
+					})
+				});
+			}
 		});
 
 	</script>
