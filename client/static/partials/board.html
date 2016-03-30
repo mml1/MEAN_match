@@ -1,26 +1,26 @@
 <div ng-controller = "MovesController">
-	{{buildBoard()}}
+	<!-- {{buildBoard()}} -->
 	{{cards}}
-	{{cards[0][0].card.flip}}
+	<!-- {{cards[0][0].card.flip}}
 	{{cards[0][0].card.flip = false}}
 	<div id="board">
-	</div>	
-	{{card2.flip}}
+	</div>
+	{{card2.flip}} -->
 	<div class = "row" ng-repeat="card in cards track by $index">
 		{{$index}}
 		<div class = "single" ng-repeat = "dict in card track by $index">
 			<div ng-if= "dict.card.flip == false">
-				<div ng-click="dict.card.flip = true">disappear {{$index}}</div>
+				<div ng-click="dict.card.flip = true"><div class="col-sm-3 card one" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div></div>
 			</div>
 			<div ng-if= "dict.card.flip == true">
-				<div ng-click="dict.card.flip = false">appear {{$index}}</div>
+				<div ng-click="dict.card.flip = false"><div class="col-sm-3 card text-center one" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Apple</h2></div></div>
 			</div>
 			<!-- <div ng-click= "card2.flip=true">fd	{{$parent.$index}}{{$index}}</div> -->
 		</div>
 	</div>
 
 
-
+<!-- 
 	<div class = "row">
 		<div ng-switch on="card2.flip">
 			<div ng-switch-when= false>
@@ -165,6 +165,6 @@
 			</a>
 		</div>
 	</div>
-	
+	 -->
 
 </div>
