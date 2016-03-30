@@ -1,7 +1,6 @@
 <div ng-controller = "MovesController">
-<!-- 	{{cards}} -->
-	{{cards2}}
-	<div class = "row" ng-repeat="card in cards2 track by $index">
+	{{cards}}
+	<div class = "row" ng-repeat="card in cards track by $index">
 		<div class = "single" ng-repeat = "dict in card track by $index">
 			<div ng-if= "dict.card.flip == false">
 				<div ng-click="dict.card.flip = true"><div class="col-sm-3 card one" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div></div>

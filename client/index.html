@@ -23,6 +23,99 @@
 			})		
 		});
 
+		gAppModule.factory("BoardFactory", function($http){
+			var factory = {};
+			var cards = [
+				[{card:{
+						flip: false,
+						col:0,
+						row:0,
+						match: false,
+						face: "apple"
+					}}, 
+					{card:{
+						flip: false,
+						col:1,
+						row:0,
+						match: false,
+						face: "mango"
+					}},  
+					{card:{
+						flip: false,
+						col:2,
+						row:0,
+						match: false,
+						face: "grapes"
+					}}],
+					[{card:{
+						flip: false,
+						col:0,
+						row:1,
+						match: false,
+						face: "pinapple"
+					}}, 
+					{card:{
+						flip: false,
+						col:1,
+						row:1,
+						match: false,
+						face: "kiwi"
+					}},  
+					{card:{
+						flip: false,
+						col:2,
+						row:1,
+						match: false,
+						face: "pears"
+					}}],
+					[{card:{
+						flip: false,
+						col:0,
+						row:2,
+						match: false,
+						face: "kiwi"
+					}}, 
+					{card:{
+						flip: false,
+						col:1,
+						row:2,
+						match: false,
+						face: "grapes"
+					}},  
+					{card:{
+						flip: false,
+						col:2,
+						row:2,
+						match: false,
+						face: "mango"
+					}}],
+					[{card:{
+						flip: false,
+						col:0,
+						row:2,
+						match: false,
+						face: "pears"
+					}}, 
+					{card:{
+						flip: false,
+						col:1,
+						row:2,
+						match: false,
+						face: "pinapple"
+					}},  
+					{card:{
+						flip: false,
+						col:2,
+						row:2,
+						match: false,
+						face: "apple"
+					}}]
+			]
+			factory.getBoard = function(callback){
+				callback(cards)
+			};
+			return factory;
+		});
 		gAppModule.factory("UserFactory", function($http){
 			var factory = {};
 			var users = [];
@@ -40,121 +133,10 @@
 				$scope.users = dbinfo;
 			});
 		});
-		gAppModule.controller("MovesController", function($scope, UserFactory){
-			// var cards = []
-
-			// for(var i =0; i< 4; i++){
-			// 	cards.push([])
-			// 	for(var j =0 ; j<3; j++){
-			// 		cards[i].push({card:{
-			// 			flip: false,
-			// 			col:j,
-			// 			row: i,
-			// 			match: false,
-			// 			face: "apple"
-			// 		}});
-			// 	};
-			// };
-
-			// // var f ={}
-			// var faces = ["Apple", "Orange", "Mango","Grape", "Pear", "Banana"]
-			// var item = ""
-			// function face(){
-			// 	item = faces[Math.floor(Math.random()*faces.length)];
-			// 	// console.log(item)
-			// 	for (face in faces){
-			// 		if (faces[face] == item){
-			// 			faces.splice(face,1)
-			// 			console.log(faces)
-			// 			return item
-			// 		}
-			// 	}
-			// }
-
-			// $scope.cards = cards
-			// console.log($scope.cards)
-			// $scope.faces = faces
-
-			// building cards statically
-			var cards2 = [
-				[{card:{
-						flip: false,
-						col:0,
-						row:0,
-						match: false,
-						face: "apple"
-					}}, {card:{
-						flip: false,
-						col:1,
-						row:0,
-						match: false,
-						face: "mango"
-					}},  {card:{
-						flip: false,
-						col:2,
-						row:0,
-						match: false,
-						face: "grapes"
-					}}],
-					[{card:{
-						flip: false,
-						col:0,
-						row:1,
-						match: false,
-						face: "pinapple"
-					}}, {card:{
-						flip: false,
-						col:1,
-						row:1,
-						match: false,
-						face: "kiwi"
-					}},  {card:{
-						flip: false,
-						col:2,
-						row:1,
-						match: false,
-						face: "pears"
-					}}],
-				[{card:{
-						flip: false,
-						col:0,
-						row:2,
-						match: false,
-						face: "kiwi"
-					}}, {card:{
-						flip: false,
-						col:1,
-						row:2,
-						match: false,
-						face: "grapes"
-					}},  {card:{
-						flip: false,
-						col:2,
-						row:2,
-						match: false,
-						face: "mango"
-					}}],
-					[{card:{
-						flip: false,
-						col:0,
-						row:2,
-						match: false,
-						face: "pears"
-					}}, {card:{
-						flip: false,
-						col:1,
-						row:2,
-						match: false,
-						face: "pinapple"
-					}},  {card:{
-						flip: false,
-						col:2,
-						row:2,
-						match: false,
-						face: "apple"
-					}}]
-			]
-			$scope.cards2 =cards2
+		gAppModule.controller("MovesController", function($scope, BoardFactory){
+			BoardFactory.getBoard(function(cards){
+				$scope.cards = cards
+			})
 
 		});
 
