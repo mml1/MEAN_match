@@ -55,7 +55,7 @@
 					}});
 				};
 			};
-			var f ={}
+			// var f ={}
 			var faces = ["Apple", "Orange", "Mango","Grape", "Pear", "Banana"]
 			var item = ""
 			function face(){
@@ -64,12 +64,13 @@
 				for (face in faces){
 					if (faces[face] == item){
 						faces.splice(face,1)
-						// console.log(faces)
+						console.log(faces)
 						return item
 					}
 				}
 			}
-			console.log(face())
+			// console.log(face())
+			// console.log(face())
 			$scope.cards = cards
 			console.log($scope.cards)
 			$scope.faces = faces
