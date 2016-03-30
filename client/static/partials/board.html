@@ -1,32 +1,13 @@
 <div ng-controller = "MovesController">
-	{{cards}}
-	<div class = "row" ng-repeat="card in cards track by $index">
+<!-- 	{{cards}} -->
+	{{cards2}}
+	<div class = "row" ng-repeat="card in cards2 track by $index">
 		<div class = "single" ng-repeat = "dict in card track by $index">
 			<div ng-if= "dict.card.flip == false">
 				<div ng-click="dict.card.flip = true"><div class="col-sm-3 card one" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div></div>
 			</div>
 			<div ng-if= "dict.card.flip == true">
 				<div ng-click="dict.card.flip = false"><div class="col-sm-3 card text-center one" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">{{dict.card.face}}</h2></div></div>
-			</div>
-		</div>
-	</div>
-
-	<hr>
-	<div class = "row">
-		<div class = "single">
-			<div ng-if= "cards[0][0].card.flip == false">
-				<div ng-click="cards[0][0].card.flip = true"><div class="col-sm-3 card one" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div></div>
-			</div>
-			<div ng-if= "cards[0][0].card.flip == true">
-				<div ng-click="cards[0][0].card.flip = false"><div class="col-sm-3 card text-center one" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">{{cards[0][1].card.face}}</h2></div></div>
-			</div>
-		</div>
-		<div class = "single">
-			<div ng-if= "cards[0][1].card.flip == false">
-				<div ng-click="cards[0][1].card.flip = true"><div class="col-sm-3 card one" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div></div>
-			</div>
-			<div ng-if= "cards[0][1].card.flip == true">
-				<div ng-click="cards[0][1].card.flip = false"><div class="col-sm-3 card text-center one" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">{{cards[0][1].card.face}}</h2></div></div>
 			</div>
 		</div>
 	</div>
