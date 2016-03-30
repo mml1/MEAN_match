@@ -6,11 +6,18 @@
 	<div id="board">
 	</div>	
 	{{card2.flip}}
-	<div class = "row" ng-repeat="card in cards">
-		<div class = "card" ng-repeat = "dict in card">
-			<div ng-click= "card2.flip=true">		fs</div>
+	<div class = "row" ng-repeat="card in cards track by $index">
+		{{$index}}
+		<div class = "card" ng-repeat = "dict in card track by $index">
+			<div ng-click= "card2.flip=true">		{{$parent.$index}}{{$index}}</div>
 		</div>
 	</div>
+
+
+
+
+
+	
 	<div class = "row">
 		<div ng-switch on="card2.flip">
 			<div ng-switch-when= false>
