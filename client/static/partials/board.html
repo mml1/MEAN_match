@@ -1,11 +1,5 @@
 <div ng-controller = "MovesController">
-	<!-- {{buildBoard()}} -->
 	{{cards}}
-	<!-- {{cards[0][0].card.flip}}
-	{{cards[0][0].card.flip = false}} // this will over ride what ever is done in ng-repeat
-	<div id="board">
-	</div>
-	{{card2.flip}} -->
 	<div class = "row" ng-repeat="card in cards track by $index">
 		<div class = "single" ng-repeat = "dict in card track by $index">
 			<div ng-if= "dict.card.flip == false">

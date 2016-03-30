@@ -57,28 +57,7 @@
 			};
 			console.log(cards)
 			$scope.cards = cards
-
-			// $scope.buildBoard = function(){
-			// 	var output = "";
-			// 	for(var i =0; i< cards.length; i++){
-			// 		output += "<div class = row>"
-			// 		for(var j =0 ; j<cards[i].length; j++){
-			// 			output += "<div ng-show= 'cards["+i+"]["+j+"]"+".card.flip==false'>\n<a ng-click=cards["+i+"]["+j+"]"+".card.flip=true>\n<div class='col-sm-3 card' style='background: #6ADBD8; width: 20%; height:20% ; margin: 5px'></div>\n</a>\n</div>\n<div ng-show='cards["+i+"]["+j+"]"+".card.flip==true'>\n<a ng-click='cards["+i+"]["+j+"]"+".card.flip=false'>\n<div class='col-sm-3 card text-center' style='background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;'><h2 style='margin-top: 25%'>Apple</h2></div>\n</a>\n</div>"	
-			// 			// output += "<div ng-if= 'cards["+i+"]["+j+"]"+".card.flip==false'>\n<a ng-click=cards["+i+"]["+j+"]"+".card.flip=true>\n<div class='col-sm-3 card' style='background: #6ADBD8; width: 20%; height:20% ; margin: 5px'></div>\n</a>\n</div>\n<div ng-if='cards["+i+"]["+j+"]"+".card.flip==true'>\n<a ng-click='cards["+i+"]["+j+"]"+".card.flip=false'>\n<div class='col-sm-3 card text-center' style='background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;'><h2 style='margin-top: 25%'>Apple</h2></div>\n</a>\n</div>"
-			// 			// output += "<div ng-switch on=cards["+i+"]["+j+"]"+".card.flip>\n\t<div ng-switch-when= false>\n<a ng-click=cards["+i+"]["+j+"]"+".card.flip=true>\n<div class='col-sm-3 card' style='background: #6ADBD8; width: 20%; height:20% ; margin: 5px'></div>\n</a>\n</div>\n<div ng-switch-when= true>\n<a ng-click='cards["+i+"]["+j+"]"+".card.flip=false'>\n<div class='col-sm-3 card text-center' style='background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;'><h2 style='margin-top: 25%'>Apple</h2></div>\n</a>\n</div>\n</div>"
-			// 		};
-			// 		output += "</div>"
-			// 	};
-			// 	document.getElementById("board").innerHTML = output;
-			// };
-			$scope.card ={
-				flip:false
-			}
-			$scope.card2 ={
-				flip:false
-			}
-			//jqlite
-		})
+		});
 
 	</script>
 	
