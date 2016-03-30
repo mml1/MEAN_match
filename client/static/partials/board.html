@@ -6,7 +6,7 @@
 				<div ng-click="dict.card.flip = true"><div class="col-sm-3 card one" style="background: #6ADBD8; width: 20%; height:20% ; margin: 5px"></div></div>
 			</div>
 			<div ng-if= "dict.card.flip == true">
-				<div ng-click="dict.card.flip = false"><div class="col-sm-3 card text-center one" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">Apple</h2></div></div>
+				<div ng-click="dict.card.flip = false"><div class="col-sm-3 card text-center one" style="background: #414141; width: 20%; height:20% ; margin: 5px; color:#FF6F5C;"><h2 style="margin-top: 25%">{{dict.card.face}}</h2></div></div>
 			</div>
 		</div>
 	</div>

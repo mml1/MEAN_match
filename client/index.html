@@ -40,7 +40,6 @@
 				$scope.users = dbinfo;
 			});
 		});
-		// gAppModule.directive()
 		gAppModule.controller("MovesController", function($scope, UserFactory){
 			var cards = []
 
@@ -52,11 +51,28 @@
 						col:j,
 						row: i,
 						match: false,
+						face: "apple"
 					}});
 				};
 			};
-			console.log(cards)
+			var f ={}
+			var faces = ["Apple", "Orange", "Mango","Grape", "Pear", "Banana"]
+			var item = ""
+			function face(){
+				item = faces[Math.floor(Math.random()*faces.length)];
+				// console.log(item)
+				for (face in faces){
+					if (faces[face] == item){
+						faces.splice(face,1)
+						// console.log(faces)
+						return item
+					}
+				}
+			}
+			console.log(face())
 			$scope.cards = cards
+			console.log($scope.cards)
+			$scope.faces = faces
 		});
 
 	</script>
