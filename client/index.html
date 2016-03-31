@@ -95,7 +95,7 @@
 			$scope.totClicks = 0;
 			$scope.wins = 0;
 			$scope.misses = 0;
-					
+		
 			BoardFactory.getBoard(function(cards){
 				$scope.cards = cards;
 			})
@@ -123,12 +123,15 @@
 					$scope.numClicks = 0;
 					pair.pop();
 					pair.pop();
+					if ($scope.wins == 6){
+						var end = Math.floor(Date.now()/1000);
+						$scope.playTime = end-start;
+					}
 				}
 			}
 			$scope.total = function(face){
 				//keep track of total ties flipped
 				$scope.totClicks++;
-				console.log(Math.floor(Date.now()/1000)-start)
 			}
 		});
 
