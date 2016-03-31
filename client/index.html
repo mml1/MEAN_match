@@ -40,8 +40,9 @@
 					array[rand] = temp;
 				}
 				return array;
-			}
-			console.log(shuffle(faces), "faces")
+			};
+			//actually shuffle the array
+			shuffle(faces)
 
 			// create the cards for the board
 			for(var i =0; i< 4; i++){
@@ -64,8 +65,6 @@
 			};
 			factory.updateBoard= function(flip, callback){
 				cards = flip;
-				console.log(cards, "updated cards");
-
 			}
 			return factory;
 		});
@@ -86,7 +85,7 @@
 				$scope.users = dbinfo;
 			});
 		});
-		gAppModule.controller("MovesController", function($scope, BoardFactory){
+		gAppModule.controller("MovesController", function($scope, BoardFactory, $timeout){
 			var pair = [];
 			var wins = 0;
 			var start = Math.floor(Date.now()/1000)
@@ -101,12 +100,16 @@
 			})
 
 			$scope.flip = function(){
-				console.log("in controller")
 				BoardFactory.updateBoard($scope.cards, function(newCards){
 					BoardFactory.getBoard(function(cards){
 						$scope.cards = cards;
 					})
 				});
+			}
+			$scope.autoFlip = function(){
+				$timeout(function(){
+					console.log("woot woot")
+				},1000);
 			}
 			$scope.click = function(face){
 				pair.push(face);
