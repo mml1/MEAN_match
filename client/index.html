@@ -26,31 +26,45 @@
 
 		gAppModule.factory("BoardFactory", function($http){
 			var factory = {};
-			var cards =[]
-			var faces = ["Apple", "Orange", "Mango","Grape", "Pear", "Guava", "Apple", "Orange", "Mango","Grape", "Pear", "Guava"]
+			var cards =[];
+			var faces = ["Apple", "Orange", "Mango","Grape", "Pear", "Guava", "Apple", "Orange", "Mango","Grape", "Pear", "Guava"];
 
-				for(var i =0; i< 4; i++){
-					cards.push([]);
-					for(var j =0 ; j<3; j++){
-						var index = i*3+j;//r * # of c+c
-						cards[i].push({card:{
-							id: index,
-							flip: false,
-							col:j,
-							row: i,
-							match: false,
-							face: faces[index]
-						}});
-					};
+			//shuffle the array
+			function shuffle(array){
+				var temp;
+				var rand;
+				for(var i = array.length-1; i > 0; i --){
+					rand = Math.floor(Math.random() * i);
+					temp = array[i];
+					array[i] = array[rand];
+					array[rand] = temp;
+				}
+				return array;
+			}
+			console.log(shuffle(faces), "faces")
+
+			// create the cards for the board
+			for(var i =0; i< 4; i++){
+				cards.push([]);
+				for(var j =0 ; j<3; j++){
+					var index = i*3+j;
+					cards[i].push({card:{
+						id: index,
+						flip: false,
+						col:j,
+						row: i,
+						match: false,
+						face: faces[index]
+					}});
 				};
-			//
+			};
 
 			factory.getBoard = function(callback){
-				callback(cards)
+				callback(cards);
 			};
 			factory.updateBoard= function(flip, callback){
-				cards = flip
-				console.log(cards, "updated cards")
+				cards = flip;
+				console.log(cards, "updated cards");
 
 			}
 			return factory;
@@ -76,41 +90,44 @@
 			var pair = [];
 			var wins = 0;
 
+			//information about the game to be stored in models
 			$scope.numClicks = 0;
 			$scope.totClicks = 0;
 			$scope.wins = 0;
 			$scope.misses = 0;
 					
 			BoardFactory.getBoard(function(cards){
-				$scope.cards = cards
+				$scope.cards = cards;
 			})
 
 			$scope.flip = function(){
 				console.log("in controller")
 				BoardFactory.updateBoard($scope.cards, function(newCards){
 					BoardFactory.getBoard(function(cards){
-						$scope.cards = cards
+						$scope.cards = cards;
 					})
 				});
 			}
 			$scope.click = function(face){
-				pair.push(face)
-				$scope.numClicks ++
+				pair.push(face);
+				$scope.numClicks++;
 				if ($scope.numClicks == 2){
+					//checking to see if cards matched
 					if(pair[0] == pair[1]){
-						$scope.wins++
-						wins = $scope.wins
-						console.log("match")
+						$scope.wins++;
+						wins = $scope.wins;
+						console.log("match");
 					} else{
-						$scope.misses ++
+						$scope.misses++;
 					}
-					$scope.numClicks = 0
-					pair.pop()
-					pair.pop()
+					$scope.numClicks = 0;
+					pair.pop();
+					pair.pop();
 				}
 			}
 			$scope.total = function(face){
-					$scope.totClicks ++
+				//keep track of total ties flipped
+				$scope.totClicks++;
 			}
 		});
 

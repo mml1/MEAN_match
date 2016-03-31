@@ -1,23 +1,6 @@
 *{
 	color: #056571;
 }
-.btn-stats{
-	background: #414141;
-	color: #6ADBD8;
-}
-.backCard{
-	background: #414141; 
-	width: 20%; 
-	height:20% ; 
-	margin: 5px; 
-	color:#FF6F5C;
-}
-.frontCard{
-	background: #6ADBD8; 
-	width: 20%; 
-	height:20% ; 
-	margin: 5px
-}
 #gray{
 	background: #414141; 
 	min-height: 10px;
@@ -33,6 +16,27 @@
 #darkBlue{
 	background: #056571;
 	min-height: 10px; 
+}
+.backCard{
+	background: #414141; 
+	width: 20%; 
+	height:20% ; 
+	margin: 5px; 
+	color:#FF6F5C;
+}
+.frontCard{
+	background: #6ADBD8; 
+	width: 20%; 
+	height:20% ; 
+	margin: 5px
+}
+.btn-stats{
+	background: #414141;
+	color: #6ADBD8;
+}
+.btn-stats:hover{
+	background: #414141;
+	color: #FF6F5C;
 }
 .graph div {
   background-color: #056571;
