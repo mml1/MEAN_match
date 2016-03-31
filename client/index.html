@@ -87,6 +87,7 @@
 		});
 		gAppModule.controller("MovesController", function($scope, BoardFactory, $timeout){
 			var pair = [];
+			var pairId =[];
 			var wins = 0;
 			var start = Math.floor(Date.now()/1000)
 			//information about the game to be stored in models
@@ -106,11 +107,9 @@
 					})
 				});
 			}
-			$scope.autoFlip = function(col, row, id){
-				console.log(col, row, "passed in information");
+			$scope.autoFlip = function(id){
 				$timeout(function(){
 					for(var r =0; r<$scope.cards.length; r++){
-						// console.log(id)
 						for(var c = 0; c < $scope.cards[r].length; c++){
 							if(id == $scope.cards[r][c].card.id){
 								$scope.cards[r][c].card.flip = false
@@ -118,24 +117,31 @@
 							}
 						}
 					}
-					console.log("woot woot")
-				},1000);
+					console.log("woot woot", id)
+				},2000);
 			}
-			$scope.click = function(face){
+			$scope.click = function(face, id){
 				pair.push(face);
+				pairId.push(id)
 				$scope.numClicks++;
 				if ($scope.numClicks == 2){
 					//checking to see if cards matched
 					if(pair[0] == pair[1]){
 						$scope.wins++;
 						wins = $scope.wins;
-						console.log("match");
 					} else{
 						$scope.misses++;
+						// console.log(pairId)
+						$scope.autoFlip(pairId[0]);
+						$scope.autoFlip(pairId[1]);
+
 					}
 					$scope.numClicks = 0;
 					pair.pop();
 					pair.pop();
+					pairId.pop();
+					pairId.pop();
+
 					if ($scope.wins == 6){
 						var end = Math.floor(Date.now()/1000);
 						$scope.playTime = end-start;

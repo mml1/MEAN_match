@@ -1,19 +1,16 @@
 <div ng-controller = "MovesController">
-	{{cards}}
 	<div class = "row col-md-9" ng-repeat="card in cards track by $index">
 		<div class = "single" ng-repeat = "dict in card track by $index">
 			<div ng-if= "dict.card.flip == false;">
 <!-- 				hold for 2 seconds then flip
- -->			<div ng-click="dict.card.flip = true; autoFlip(dict.card.col, dict.card.row, dict.card.id);flip(); click(dict.card.face); total()">
+ -->			<div ng-click="dict.card.flip = true; flip(); click(dict.card.face, dict.card.id); total()">
 					<div class="col-sm-3 frontCard"></div>
 				</div>
 			</div>
 
 			<div ng-if= "dict.card.flip == true">
-				<div ng-click="dict.card.flip = false">
-					<div class="col-sm-3 backCard text-center">
-						<h2 style="margin-top: 25%">{{dict.card.face}}</h2>
-					</div>
+				<div class="col-sm-3 backCard text-center">
+					<h2 style="margin-top: 25%">{{dict.card.face}}</h2>
 				</div>
 			</div>
 		</div>
