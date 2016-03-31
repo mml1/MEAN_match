@@ -17,8 +17,8 @@
 		var gAppModule = angular.module("gApp", ["ngRoute"]);
 		gAppModule.config(function($routeProvider){
 			$routeProvider
-			.when("/users", {
-				templateUrl: "../static/partials/users.html"
+			.when("/history", {
+				templateUrl: "../static/partials/history.html"
 			}).otherwise({
 				templateUrl: "../static/partials/board.html"
 			})		
@@ -28,6 +28,7 @@
 			var factory = {};
 			var cards =[];
 			var faces = ["Apple", "Orange", "Mango","Grape", "Pear", "Guava", "Apple", "Orange", "Mango","Grape", "Pear", "Guava"];
+			var stats = {}
 
 			//shuffle the array
 			function shuffle(array){
@@ -66,9 +67,21 @@
 			factory.updateBoard= function(flip, callback){
 				cards = flip;
 			}
+			factory.getStats = function(total, pairs, misses, playTime){
+				console.log(total, pairs, misses, playTime);
+				stats.total = total;
+				stats.pairs = pairs;
+				stats.misses = misses;
+				stats.playTime = playTime;
+				console.log(stats)
+			}
+			factory.displayStats = function(callback){
+				callback(stats);
+			}
+
 			return factory;
 		});
-		gAppModule.factory("UserFactory", function($http){
+		gAppModule.factory("HistoryFactory", function($http){
 			var factory = {};
 			var users = [];
 			factory.index = function(callback){
@@ -80,8 +93,13 @@
 			return factory;
 		});
 
-		gAppModule.controller("UsersController", function($scope, UserFactory){
-			UserFactory.index(function(dbinfo){
+		gAppModule.controller("HistorysController", function($scope, HistoryFactory, BoardFactory){
+			BoardFactory.displayStats(
+				function(gameInfo){
+					console.log(gameInfo);
+					$scope.gameInfo = gameInfo;
+				})
+			HistoryFactory.index(function(dbinfo){
 				$scope.users = dbinfo;
 			});
 		});
@@ -118,7 +136,7 @@
 						}
 					}
 					console.log("woot woot", id)
-				},2000);
+				},700);
 			}
 			$scope.click = function(face, id){
 				pair.push(face);
@@ -145,6 +163,7 @@
 					if ($scope.wins == 6){
 						var end = Math.floor(Date.now()/1000);
 						$scope.playTime = end-start;
+						BoardFactory.getStats($scope.totClicks,$scope.wins, $scope.misses, $scope.playTime)
 					}
 				}
 			}
