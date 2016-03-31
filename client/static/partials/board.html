@@ -4,7 +4,7 @@
 		<div class = "single" ng-repeat = "dict in card track by $index">
 			<div ng-if= "dict.card.flip == false;">
 <!-- 				hold for 2 seconds then flip
- -->			<div ng-click="dict.card.flip = true; autoFlip();flip(); click(dict.card.face); total()">
+ -->			<div ng-click="dict.card.flip = true; autoFlip(dict.card.col, dict.card.row, dict.card.id);flip(); click(dict.card.face); total()">
 					<div class="col-sm-3 frontCard"></div>
 				</div>
 			</div>

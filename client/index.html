@@ -106,8 +106,18 @@
 					})
 				});
 			}
-			$scope.autoFlip = function(){
+			$scope.autoFlip = function(col, row, id){
+				console.log(col, row, "passed in information");
 				$timeout(function(){
+					for(var r =0; r<$scope.cards.length; r++){
+						// console.log(id)
+						for(var c = 0; c < $scope.cards[r].length; c++){
+							if(id == $scope.cards[r][c].card.id){
+								$scope.cards[r][c].card.flip = false
+								console.log($scope.cards[r][c].card.flip)
+							}
+						}
+					}
 					console.log("woot woot")
 				},1000);
 			}
