@@ -26,104 +26,124 @@
 
 		gAppModule.factory("BoardFactory", function($http){
 			var factory = {};
-			var cards = [
-				[{card:{
-						id:1,
-						flip: false,
-						col:0,
-						row:0,
-						match: false,
-						face: "apple"
-					}}, 
-					{card:{
-						id:2,
-						flip: false,
-						col:1,
-						row:0,
-						match: false,
-						face: "mango"
-					}},  
-					{card:{
-						id:3,
-						flip: false,
-						col:2,
-						row:0,
-						match: false,
-						face: "grapes"
-					}}],
-					[{card:{
-						id:4,
-						flip: false,
-						col:0,
-						row:1,
-						match: false,
-						face: "guava"
-					}}, 
-					{card:{
-						id:5,
-						flip: false,
-						col:1,
-						row:1,
-						match: false,
-						face: "kiwi"
-					}},  
-					{card:{
-						id:6,
-						flip: false,
-						col:2,
-						row:1,
-						match: false,
-						face: "pears"
-					}}],
-					[{card:{
-						id:7,
-						flip: false,
-						col:0,
-						row:2,
-						match: false,
-						face: "kiwi"
-					}}, 
-					{card:{
-						id:8,
-						flip: false,
-						col:1,
-						row:2,
-						match: false,
-						face: "grapes"
-					}},  
-					{card:{
-						id:9,
-						flip: false,
-						col:2,
-						row:2,
-						match: false,
-						face: "mango"
-					}}],
-					[{card:{
-						id:10,
-						flip: false,
-						col:0,
-						row:3,
-						match: false,
-						face: "pears"
-					}}, 
-					{card:{
-						id:11,
-						flip: false,
-						col:1,
-						row:3,
-						match: false,
-						face: "guava"
-					}},  
-					{card:{
-						id:12,
-						flip: false,
-						col:2,
-						row:3,
-						match: false,
-						face: "apple"
-					}}]
-			]
+			// var cards = [
+			// 	[{card:{
+			// 			id:1,
+			// 			flip: false,
+			// 			col:0,
+			// 			row:0,
+			// 			match: false,
+			// 			face: "apple"
+			// 		}}, 
+			// 		{card:{
+			// 			id:2,
+			// 			flip: false,
+			// 			col:1,
+			// 			row:0,
+			// 			match: false,
+			// 			face: "mango"
+			// 		}},  
+			// 		{card:{
+			// 			id:3,
+			// 			flip: false,
+			// 			col:2,
+			// 			row:0,
+			// 			match: false,
+			// 			face: "grapes"
+			// 		}}],
+			// 		[{card:{
+			// 			id:4,
+			// 			flip: false,
+			// 			col:0,
+			// 			row:1,
+			// 			match: false,
+			// 			face: "guava"
+			// 		}}, 
+			// 		{card:{
+			// 			id:5,
+			// 			flip: false,
+			// 			col:1,
+			// 			row:1,
+			// 			match: false,
+			// 			face: "kiwi"
+			// 		}},  
+			// 		{card:{
+			// 			id:6,
+			// 			flip: false,
+			// 			col:2,
+			// 			row:1,
+			// 			match: false,
+			// 			face: "pears"
+			// 		}}],
+			// 		[{card:{
+			// 			id:7,
+			// 			flip: false,
+			// 			col:0,
+			// 			row:2,
+			// 			match: false,
+			// 			face: "kiwi"
+			// 		}}, 
+			// 		{card:{
+			// 			id:8,
+			// 			flip: false,
+			// 			col:1,
+			// 			row:2,
+			// 			match: false,
+			// 			face: "grapes"
+			// 		}},  
+			// 		{card:{
+			// 			id:9,
+			// 			flip: false,
+			// 			col:2,
+			// 			row:2,
+			// 			match: false,
+			// 			face: "mango"
+			// 		}}],
+			// 		[{card:{
+			// 			id:10,
+			// 			flip: false,
+			// 			col:0,
+			// 			row:3,
+			// 			match: false,
+			// 			face: "pears"
+			// 		}}, 
+			// 		{card:{
+			// 			id:11,
+			// 			flip: false,
+			// 			col:1,
+			// 			row:3,
+			// 			match: false,
+			// 			face: "guava"
+			// 		}},  
+			// 		{card:{
+			// 			id:12,
+			// 			flip: false,
+			// 			col:2,
+			// 			row:3,
+			// 			match: false,
+			// 			face: "apple"
+			// 		}}]
+			// ]
+			//
+			var cards =[]
+			var faces = ["Apple", "Orange", "Mango","Grape", "Pear", "Guava", "Apple", "Orange", "Mango","Grape", "Pear", "Guava"]
+
+				for(var i =0; i< 4; i++){
+					cards.push([]);
+					for(var j =0 ; j<3; j++){
+						var index = i*3+j;//r * # of c+c
+						cards[i].push({card:{
+							id: index,
+							flip: false,
+							col:j,
+							row: i,
+							match: false,
+							face: faces[index]
+						}});
+					};
+				};
+			//
+
 			factory.getBoard = function(callback){
 				callback(cards)
 			};
