@@ -1,23 +1,18 @@
 <div ng-controller = "UsersController">
-	<h3>Add a new User</h3>
-	Name:
-	<input type = "text" ng-model="newUser.name">
-	<input class = "btn btn-primary" type = "submit" ng-click="addUser()">
-	<table class = "table table-stripped">
-		<thead>
-			<tr>
-				<th>Username</th>
-				<th> Created Date</th>
-				<th>Actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat = "person in users">
-				<td>{{person.name}}</td>
-				<td></td>
-				<td></td>
-			</tr>
-		</tbody>
-	</table>
+	<h2>Game Statistics</h2>
+<div class="row">
+	<div class = "graph">
+  		<div style="height: 80px;">Misses </div>
+	  	<div style="height: 150px;">Total</div>
+	  	<div style="height: 50px;">pairs</div>
+	</div>
+</div>
+<div class ="row">
+<div class = "labels">
+  		<div>Misses </div>
+	  	<div>Total</div>
+	  	<div>pairs</div>
+	</div>
+</div>
 
 </div>

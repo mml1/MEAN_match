@@ -1,6 +1,10 @@
 *{
 	color: #056571;
 }
+.btn-stats{
+	background: #414141;
+	color: #6ADBD8;
+}
 .backCard{
 	background: #414141; 
 	width: 20%; 
@@ -29,4 +33,24 @@
 #darkBlue{
 	background: #056571;
 	min-height: 10px; 
+}
+.graph div {
+  background-color: #056571;
+  color: #6ADBD8;
+  text-align: right;
+  padding: 3px;
+  margin: 2px;
+  width:25%;
+  display: inline-block;
+  vertical-align: bottom;
+}
+.labels div {
+  display: inline-block;
+  color: #FF6F5C;
+  font-weight:bold ;
+  text-align: center;
+  width:25%;
+  vertical-align: bottom;
+  padding: 3px;
+  margin: 2px;
 }

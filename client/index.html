@@ -158,6 +158,7 @@
 			$scope.numClicks = 0;
 			$scope.totClicks = 0;
 			$scope.wins = 0;
+			$scope.misses = 0;
 					
 			BoardFactory.getBoard(function(cards){
 				$scope.cards = cards
@@ -179,6 +180,8 @@
 						$scope.wins++
 						wins = $scope.wins
 						console.log("match")
+					} else{
+						$scope.misses ++
 					}
 					$scope.numClicks = 0
 					pair.pop()
