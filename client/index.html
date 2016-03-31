@@ -89,7 +89,7 @@
 		gAppModule.controller("MovesController", function($scope, BoardFactory){
 			var pair = [];
 			var wins = 0;
-
+			var start = Math.floor(Date.now()/1000)
 			//information about the game to be stored in models
 			$scope.numClicks = 0;
 			$scope.totClicks = 0;
@@ -128,6 +128,7 @@
 			$scope.total = function(face){
 				//keep track of total ties flipped
 				$scope.totClicks++;
+				console.log(Math.floor(Date.now()/1000)-start)
 			}
 		});
 
