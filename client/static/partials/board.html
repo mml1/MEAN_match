@@ -1,15 +1,24 @@
 <div ng-controller = "MovesController">
-	{{cards}}
-	<h1>HEATHER</h1>
-<!-- 	{{flip(0,2,true)}}
- -->	<div class = "row" ng-repeat="card in cards track by $index">
+	<div class = "row col-md-9" ng-repeat="card in cards track by $index">
 		<div class = "single" ng-repeat = "dict in card track by $index">
-			<div ng-if= "dict.card.flip == false">
-				<div ng-click="dict.card.flip = true; flip()"><div class="col-sm-3 frontCard"></div></div>
+			<div ng-if= "dict.card.flip == false;">
+<!-- 				hold for 2 seconds then flip
+ -->			<div ng-click="dict.card.flip = true; flip(); click(dict.card.face); total()">
+					<div class="col-sm-3 frontCard"></div>
+				</div>
 			</div>
+
 			<div ng-if= "dict.card.flip == true">
-				<div ng-click="dict.card.flip = false"><div class="col-sm-3 backCard text-center"><h2 style="margin-top: 25%">{{dict.card.face}}</h2></div></div>
+				<div ng-click="dict.card.flip = false">
+					<div class="col-sm-3 backCard text-center">
+						<h2 style="margin-top: 25%">{{dict.card.face}}</h2>
+					</div>
+				</div>
 			</div>
 		</div>
+	</div>
+	<div>
+		<h3>Number of pairs: <span style="color: #FF6F5C">{{wins}}</span></h3>
+		<h3>Total flipped: <span style="color: #FF6F5C">{{totClicks}}</span></h3>
 	</div>
 </div>

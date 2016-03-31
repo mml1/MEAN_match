@@ -57,7 +57,7 @@
 						col:0,
 						row:1,
 						match: false,
-						face: "pinapple"
+						face: "guava"
 					}}, 
 					{card:{
 						id:5,
@@ -113,7 +113,7 @@
 						col:1,
 						row:3,
 						match: false,
-						face: "pinapple"
+						face: "guava"
 					}},  
 					{card:{
 						id:12,
@@ -132,23 +132,6 @@
 				console.log(cards, "updated cards")
 
 			}
-			// factory.flip = function(row,id, status){
-			// 	var tempr = 2
-			// 	var tempid = 8
-			// 	//will traverse through the cards and then will update the flip
-			// 	for (var r =0; r<cards.length; r++){
-			// 		//r is row
-			// 		for(var c = 0; c < cards[r].length; c++){
-			// 			if(r == row && c == id){
-			// 			console.log(cards[r][c].card.id)
-			// 			// if (cards[r] == c){
-			// 			// 	console.log(cards[r][c])
-			// 			// }
-			// 			}
-			// 		}
-			// 	}
-			// }
-			// get the information from the scope and replace the factory board with that
 			return factory;
 		});
 		gAppModule.factory("UserFactory", function($http){
@@ -169,9 +152,17 @@
 			});
 		});
 		gAppModule.controller("MovesController", function($scope, BoardFactory){
+			var pair = [];
+			var wins = 0;
+
+			$scope.numClicks = 0;
+			$scope.totClicks = 0;
+			$scope.wins = 0;
+					
 			BoardFactory.getBoard(function(cards){
 				$scope.cards = cards
 			})
+
 			$scope.flip = function(){
 				console.log("in controller")
 				BoardFactory.updateBoard($scope.cards, function(newCards){
@@ -180,6 +171,23 @@
 					})
 				});
 			}
+			$scope.click = function(face){
+				pair.push(face)
+				$scope.numClicks ++
+				if ($scope.numClicks == 2){
+					if(pair[0] == pair[1]){
+						$scope.wins++
+						wins = $scope.wins
+						console.log("match")
+					}
+					$scope.numClicks = 0
+					pair.pop()
+					pair.pop()
+				}
+			}
+			$scope.total = function(face){
+					$scope.totClicks ++
+			}
 		});
 
 	</script>
@@ -187,9 +195,30 @@
 </head>
 <body>
 	<div class= "container">
-		<a href = "#/users">Users</a>
+		<div class = "row">
+			<div class = "col-sm-3" id="gray">
+			</div>
+			<div class = "col-sm-3" id="lightBlue">
+			</div>
+			<div class = "col-sm-3" id="peach">
+			</div>
+			<div class = "col-sm-3" id="darkBlue">
+			</div>
+		</div>
 		<div class = "row" ng-view=""></div>
+		<br>
+		<div class = "row">
+			<div class = "col-sm-3" id="gray">
+			</div>
+			<div class = "col-sm-3" id="lightBlue">
+			</div>
+			<div class = "col-sm-3" id="peach">
+			</div>
+			<div class = "col-sm-3" id="darkBlue">
+			</div>
+		</div>
 	</div>
+
 
 </body>
 </html>
