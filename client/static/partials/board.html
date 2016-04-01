@@ -16,15 +16,20 @@
 		</div>
 	</div>
 	<div>
+		<div style="text-align:left"><h1><span style="color: #FF6F5C">Memory</span><span style="color: #6ADBD8"> Lane</span></h1></div>
+		<hr>
+		
 		<h3>Number of pairs: <span style="color: #FF6F5C">{{wins}}</span></h3>
 		<h3>Total flipped: <span style="color: #FF6F5C">{{totClicks}}</span></h3>
 		<h3>Missed: <span style="color: #FF6F5C">{{misses}}</span></h3>
 
-		<h3 ng-if="playTime">Play time: <span style="color: #FF6F5C">{{playTime}} <span style="color: #056571">seconds</span></span></h3>
-		<a class="btn btn-stats" href="#/individual">Game Stats</a>
-		<br> <br>
-
 		<a class="btn btn-stats" href="/" target="_self">New Game</a>
+		<a class = "btn btn-stats" href ="#/history">All Records</a>
 		<!-- <a class="btn btn-stats" href="#/users">Cheat</a> -->
+				<br> <br>
+		<div ng-if="playTime">
+			<h3>Play time: <span style="color: #FF6F5C">{{playTime}} <span style="color: #056571">seconds</span></span></h3>
+			<a class="btn btn-stats" href="#/individual">Game Stats</a>
+		</div>
 	</div>
 </div>

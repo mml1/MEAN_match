@@ -1,10 +1,10 @@
 <div ng-controller = "HistorysController">
-	<h2>Game Statistics</h2>
-	<div class="row">
+		<h2>Past Games</h2>
 		<table class="table table-striped">
 		    <thead>
 		      <tr>
 		        <th>Date</th>
+		        <th>Time</th>
 		        <th>Duration</th>
 		        <th>Moves</th>
 		        <th>Missed</th>
@@ -13,11 +13,12 @@
 		    <tbody>
 		      <tr ng-repeat = "game in games">
 		        <td>{{game.created_at | date: format:timezone}}</td>
+		        <td>{{game.created_at | date: "h:mm:ss"}}</td>
 		        <td>{{game.playTime}} seconds</td>
 		        <td>{{game.moves}}</td>
 		        <td>{{game.misses}}</td>
 		      </tr>
 		    </tbody>
 		 </table>
-	</div>
+		 <a class = "btn btn-stats" href ="#/">New Game</a>
 </div>

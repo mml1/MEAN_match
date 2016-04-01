@@ -5,6 +5,6 @@ var GameSchema = new mongoose.Schema({
 	misses: Number,
 	playTime: Number,
 	moves: Number,
-	created_at: {type: Date, default: new Date},
+	created_at: {type: Date, default: Date.now},
 });
 mongoose.model("Game", GameSchema);
