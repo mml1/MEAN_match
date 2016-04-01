@@ -17,7 +17,9 @@
 		var gAppModule = angular.module("gApp", ["ngRoute"]);
 		gAppModule.config(function($routeProvider){
 			$routeProvider
-			.when("/history", {
+			.when("/individual", {
+				templateUrl: "../static/partials/individual.html"
+			}).when("/history", {
 				templateUrl: "../static/partials/history.html"
 			}).otherwise({
 				templateUrl: "../static/partials/board.html"
@@ -69,10 +71,14 @@
 			}
 			factory.getStats = function(total, pairs, misses, playTime){
 				console.log(total, pairs, misses, playTime);
-				stats.total = total;
+				stats.moves = total; //total moves
 				stats.pairs = pairs;
 				stats.misses = misses;
 				stats.playTime = playTime;
+
+				$http.post("/games", stats).success(function(){
+					console.log("back from creating")			
+				});
 				console.log(stats)
 			}
 			factory.displayStats = function(callback){
@@ -83,24 +89,32 @@
 		});
 		gAppModule.factory("HistoryFactory", function($http){
 			var factory = {};
-			var users = [];
+			var games = [];
 			factory.index = function(callback){
-				$http.get("/REPLACE").success(function(dbinfo){
-					users = dbinfo;
-					callback(users);
+				$http.get("/index").success(function(dbinfo){
+					console.log("in games index")
+					games = dbinfo;
+					callback(games);
 				});
 			};
+			// factory.create = function(stats){
+			// 	$http.post("/game", stats).success(function(){
+			// 		console.log("back from creating")			
+			// 	});
+			// }
 			return factory;
 		});
 
-		gAppModule.controller("HistorysController", function($scope, HistoryFactory, BoardFactory){
+		gAppModule.controller("IndividualsController", function($scope, BoardFactory){
 			BoardFactory.displayStats(
 				function(gameInfo){
 					console.log(gameInfo);
 					$scope.gameInfo = gameInfo;
-				})
+				});
+		});
+		gAppModule.controller("HistorysController", function($scope, HistoryFactory, BoardFactory){
 			HistoryFactory.index(function(dbinfo){
-				$scope.users = dbinfo;
+				$scope.games = dbinfo;
 			});
 		});
 		gAppModule.controller("MovesController", function($scope, BoardFactory, $timeout){
