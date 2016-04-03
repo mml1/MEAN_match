@@ -15,7 +15,6 @@ module.exports = (function(){
 		}, 
 		create: function(req, res){
 			var g = new Game(req.body)
-			//
 			g.save(function(err){
 				if(err){
 					console.log(err)
