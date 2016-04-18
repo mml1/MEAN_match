@@ -1,19 +1,17 @@
 <div ng-controller = "IndividualsController">
 	<h2>Game Statistics</h2>
-<div class="row">
-	<div class = "graph">
-  		<div style="height: {{gameInfo.misses}}0px;">{{gameInfo.misses}} </div>
-	  	<div style="height: {{gameInfo.moves}}0px;">{{gameInfo.moves}}</div>
-	  	<div style="height: {{gameInfo.pairs}}0px;">{{gameInfo.pairs}}</div>
-	  	<div style ="background:#FFFFFF; width:15%">
-	  		<h3>
-	  			<span style="color:#4141">{{gameInfo.playTime}} </span>secs
-	  		</h3>
-	  	</div>
-	</div>
+<div class = "graph">
+	<div style="height: {{gameInfo.misses}}0px;">{{gameInfo.misses}} </div>
+  	<div style="height: {{gameInfo.moves}}0px;">{{gameInfo.moves}}</div>
+  	<div style="height: {{gameInfo.pairs}}0px;">{{gameInfo.pairs}}</div>
+  	<div style ="background:#FFFFFF; width:15%">
+  		<h3>
+  			<span style="color:#4141">{{gameInfo.playTime}} </span>secs
+  		</h3>
+  	</div>
 </div>
 <div class ="row">
-<div class = "labels">
+	<div class = "labels">
   		<div>Misses </div>
 	  	<div>Total Moves</div>
 	  	<div>Pairs</div>
