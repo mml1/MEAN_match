@@ -1,8 +1,10 @@
 <div ng-controller = "HistorysController">
-		<h2>Past Games</h2>
+		<h2 class="text-center">Top Ten Players</h2>
+		<br>
 		<table class="table table-striped">
 		    <thead>
 		      <tr>
+		      	<th>Player</th>
 		        <th>Date</th>
 		        <th>Time</th>
 		        <th>Duration</th>
@@ -11,7 +13,8 @@
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <tr ng-repeat = "game in games">
+		      <tr ng-repeat = "game in games| orderBy: 'moves' | limitTo:10">
+		      	<td>{{game.user}}</td>
 		        <td>{{game.created_at | date: format:timezone}}</td>
 		        <td>{{game.created_at | date: "h:mm:ss"}}</td>
 		        <td>{{game.playTime}} seconds</td>

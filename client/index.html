@@ -69,15 +69,17 @@
 			factory.updateBoard= function(flip, callback){
 				cards = flip;
 			}
-			factory.getStats = function(total, pairs, misses, playTime){
-				console.log(total, pairs, misses, playTime);
+			factory.setStats = function(total, pairs, misses, playTime, user){
+				console.log(total, pairs, misses, playTime, user);
 				stats.moves = total; //total moves
 				stats.pairs = pairs;
 				stats.misses = misses;
 				stats.playTime = playTime;
+				stats.user = user;
+
 
 				$http.post("/games", stats).success(function(){
-					console.log("back from creating")			
+					console.log("back from creating game")			
 				});
 				console.log(stats)
 			}
@@ -113,11 +115,14 @@
 			});
 			
 		});
-		gAppModule.controller("MovesController", function($scope, BoardFactory, $timeout){
+		gAppModule.controller("BoardsController", function($scope, BoardFactory, $timeout){
+			
+
 			var pair = [];
 			var pairId =[];
 			var wins = 0;
 			var start = Math.floor(Date.now()/1000)
+			
 			//information about the game to be stored in models
 			$scope.numClicks = 0;
 			$scope.totClicks = 0;
@@ -145,7 +150,6 @@
 							}
 						}
 					}
-					console.log("woot woot", id)
 				},700);
 			}
 			$scope.click = function(face, id){
@@ -173,7 +177,9 @@
 					if ($scope.wins == 6){
 						var end = Math.floor(Date.now()/1000);
 						$scope.playTime = end-start;
-						BoardFactory.getStats($scope.totClicks,$scope.wins, $scope.misses, $scope.playTime)
+
+						$scope.user = prompt("Enter a Username");
+						BoardFactory.setStats($scope.totClicks,$scope.wins, $scope.misses, $scope.playTime, $scope.user)
 					}
 				}
 			}
