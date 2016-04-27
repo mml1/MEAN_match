@@ -1,5 +1,5 @@
 <div ng-controller = "BoardsController">
-	<div class = "row col-md-9" ng-repeat="card in cards track by $index">
+	<div class = "col-lg-9" ng-repeat="card in cards track by $index">
 		<div class = "single" ng-repeat = "dict in card track by $index">
 			<div ng-if= "dict.card.flip == false;">
 				<div ng-click="dict.card.flip = true; flip(); click(dict.card.face, dict.card.id); total()">
@@ -18,16 +18,17 @@
 		<div style="text-align:left"><h1><span style="color: #FF6F5C">Memory</span><span style="color: #6ADBD8"> Lane</span></h1></div>
 		<hr>
 		
-		<h3>Number of pairs: <span style="color: #FF6F5C">{{wins}}</span></h3>
-		<h3>Total flipped: <span style="color: #FF6F5C">{{totClicks}}</span></h3>
+		<h3>Pairs: <span style="color: #FF6F5C">{{wins}}</span></h3>
+		<h3>Moves: <span style="color: #FF6F5C">{{totClicks}}</span></h3>
 		<h3>Missed: <span style="color: #FF6F5C">{{misses}}</span></h3>
 
-		<a class="btn btn-stats" href="/" target="_self">New Game</a>
 		<a class = "btn btn-stats" href ="#/history">All Records</a>
+		<br> <br>
+		<a class="btn btn-stats" href="/" target="_self">New Game</a>
 
 		<br> <br>
 		<div ng-if="playTime">
-			<h3>Play time: <span style="color: #FF6F5C">{{playTime}} <span style="color: #056571">seconds</span></span></h3>
+			<h3>Time: <span style="color: #FF6F5C">{{playTime}} <span style="color: #056571">s</span></span></h3>
 			<a class="btn btn-stats" href="#/individual">Game Stats</a>
 		</div>
 	</div>
