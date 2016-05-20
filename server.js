@@ -13,6 +13,6 @@ require("./server/config/mongoose.js");
 require("./server/config/routes.js")(app);
 
 //listening
-app.listen(8000, function(){
-	console.log("Listening to games on 8000");
+app.listen(5000, function(){
+	console.log("Listening to games on 5000");
 });
