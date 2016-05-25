@@ -3,12 +3,12 @@ A memory game where a user had to match two words to get a point. The game track
 
 ## Technologies used
 * MongoDB & Mongoose
-* Express 
+* Express.js
 * AngularJS
 * Node.js
 * Twitter Bootstrap
 * HTML5
-* CSS 3
+* CSS3
 
 ## Algorithms used
 Fisher-Yates shuffle used to randimize the faces of the cards. 
@@ -22,6 +22,7 @@ Fisher-Yates shuffle used to randimize the faces of the cards.
 * Run your mongodb
 * Clone the project
 * cd into the project
+* npm install
 * node server.js
 * Go to your browser and type localhost:8000 in the URL box. 
 
